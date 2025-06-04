@@ -1,0 +1,20 @@
+services:
+  api:
+    build:
+      context: ./api
+    volumes:
+      - ./api:/app
+    working_dir: /app
+    command: python llm_api.py
+    ports:
+      - "5000:5000"
+    tty: true
+
+  voice:
+    build:
+      context: ./voice
+    volumes:
+      - ./voice:/app
+    working_dir: /app
+    tty: true
+
