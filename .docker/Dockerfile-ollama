@@ -1,0 +1,17 @@
+FROM ubuntu:22.04
+
+ENV OLLAMA_HOST=0.0.0.0
+
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Installation d'Ollama
+RUN curl -fsSL https://ollama.com/install.sh | sh
+
+COPY .docker/entrypoint-ollama.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+EXPOSE 11434
+
+ENTRYPOINT ["/entrypoint.sh"]

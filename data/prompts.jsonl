@@ -1,2 +1,9 @@
+<<<<<<< HEAD
 {"prompt": "Bonjour", "completion": "Bonjour, comment puis-je vous aider ?"}
 {"prompt": "Quel temps fait-il ?", "completion": "Je ne peux pas accéder à la météo en temps réel, mais je peux vous aider pour d'autres questions !"}
+=======
+{
+  "prompt": "Ambiance Kaamelott",
+  "completion": "Lumières chaudes et tamisées activées, téléviseur prêt à diffuser Kaamelott."
+}
+>>>>>>> e467a78 (chore: synchronisation complète du dossier local avec main (README global, suppression README voice, suppression .wav, etc.))
