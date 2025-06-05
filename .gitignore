@@ -1,0 +1,5 @@
+# Ignore le binaire ffmpeg
+ffmpeg.exe
+# Ignore les fichiers audio temporaires
+voice/audio_tmp/*.wav
+temp.wav
