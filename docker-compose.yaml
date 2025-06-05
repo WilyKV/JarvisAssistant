@@ -1,20 +1,31 @@
 services:
-  api:
+  jarvis-api:
     build:
-      context: ./api
+      context: .
+      dockerfile: .docker/Dockerfile-api
+    container_name: jarvis-api
     volumes:
-      - ./api:/app
+      - .:/app
     working_dir: /app
-    command: python llm_api.py
     ports:
-      - "5000:5000"
-    tty: true
+      - "8200:8200"
+    depends_on:
+      - jarvis-ollama
+    environment:
+      - OLLAMA_HOST=jarvis-ollama
+      - OLLAMA_PORT=11434
 
-  voice:
+  jarvis-ollama:
     build:
-      context: ./voice
+      context: .
+      dockerfile: .docker/Dockerfile-ollama
+    container_name: jarvis-ollama
+    ports:
+      - "11434:11434"
     volumes:
-      - ./voice:/app
+      - .:/app
     working_dir: /app
-    tty: true
 
+networks:
+    default:
+      driver: bridge
